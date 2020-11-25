@@ -21,9 +21,9 @@ var solution1 = function(nums, target){
 var solution2 = function(nums, target){
     let [left, right] = [0, nums.length - 1];
     while (left <= right){
-        const mid = Math.floor((left + right) / 2);
-        if (nums[mid] === target) return mid;
-        if (nums[left] <= nums[mid]){
+        const mid = left + Math.floor((right - left) / 2);
+        if (target === nums[mid]) return mid;
+        if (nums[mid] >= nums[left]){
             if (target >= nums[left] && target < nums[mid]){
                 right = mid - 1;
             }else{
